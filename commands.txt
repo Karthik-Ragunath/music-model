@@ -1,0 +1,2 @@
+cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate music-gen && python inference_ace_step.py --caption "catchy pop song with warm vocals and upbeat melody" --lyrics "[Chorus]
+Hello hello, hello you stranger" --duration 30
