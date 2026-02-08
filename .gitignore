@@ -242,3 +242,4 @@ proxy_config.txt
 gradio_outputs/
 acestep/third_parts/vllm/
 checkpoints/
+audio_outputs/
