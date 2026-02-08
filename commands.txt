@@ -28,3 +28,5 @@ curl -s http://localhost:8190/health | python3 -m json.tool && echo "--- Generat
 
 cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate music-gen && python gradio_client.py --port 7860 --server-url http://localhost:8190
 
+tmux new -s ngrok
+ngrok http 8190
