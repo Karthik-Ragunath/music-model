@@ -2,3 +2,18 @@ cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate 
 Hello hello, hello you stranger" --duration 30
 
 cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate music-gen && python inference_ace_step.py --caption "simple acoustic vocal song, clear singing voice, minimal instrumentation, focus on lyrics" --lyrics "Hello hello, hello you stranger" --duration 15
+
+cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate music-gen && python inference_ace_step.py \
+  --caption "female vocalist singing a catchy pop melody with soft acoustic guitar accompaniment, warm and intimate, clear vocals, English" \
+  --lyrics "[Verse]
+Hello hello
+Hello you stranger
+Hello hello
+Hello you stranger
+
+[Chorus]
+Hello hello
+Hello you stranger
+Hello hello
+Hello you stranger" \
+  --duration 30
