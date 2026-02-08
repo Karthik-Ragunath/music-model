@@ -16,4 +16,12 @@ Hello hello
 Hello you stranger
 Hello hello
 Hello you stranger" \
-  --duration 30
+  --duration 15
+
+curl -s http://localhost:8190/health | python3 -m json.tool && echo "--- Generating ---" && mkdir -p /home/ubuntu/github/ACE-Step-1.5/audio_outputs && curl -s -X POST http://localhost:8190/generate \
+  -H "Content-Type: application/json" \
+  -d '{"caption": "female vocalist singing a catchy pop melody with soft acoustic guitar accompaniment, warm and intimate, clear vocals, English", "lyrics": "[Verse]\nHello hello\nHello you stranger\nHello hello\nHello you stranger\n\n[Chorus]\nHello hello\nHello you stranger\nHello hello\nHello you stranger", "instrumental": false, "duration": 15, "seed": -1}' \
+  -o /home/ubuntu/github/ACE-Step-1.5/audio_outputs/hello_stranger.flac -w "\nHTTP %{http_code} | Size: %{size_download} bytes | Time: %{time_total}s\n" \
+  -D /tmp/test_headers.txt && echo "--- Headers ---" && grep "^X-" /tmp/test_headers.txt && echo "--- File ---" && file /home/ubuntu/github/ACE-Step-1.5/audio_outputs/hello_stranger.flac
+
+cd /home/ubuntu/github/ACE-Step-1.5 && eval "$(pyenv init -)" && pyenv activate music-gen && python gradio_client.py --port 7860 --server-url http://localhost:8190

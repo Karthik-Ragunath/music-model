@@ -36,6 +36,12 @@ soundfile==0.13.1
 scipy==1.17.0
 numba==0.63.1
 
+# --- Server / API ---
+uvicorn==0.40.0
+fastapi==0.128.4
+pydantic==2.12.5
+gradio>=6.5.1
+
 # --- HuggingFace / Networking ---
 huggingface_hub==0.36.2
 tokenizers==0.22.2
@@ -61,7 +67,7 @@ typing_extensions==4.15.0
 
 # --- Optional (uncomment if needed) ---
 # flash-attn              # for faster attention (build from source on Linux)
-# gradio>=6.5.1           # for Gradio web UI
+# gradio                  # (moved to Server / API section above)
 # matplotlib>=3.7.5       # for visualization
 # tensorboard>=2.0.0      # for training monitoring
 # lightning>=2.0.0         # for training
