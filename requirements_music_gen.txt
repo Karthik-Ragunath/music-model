@@ -1,0 +1,71 @@
+# ============================================================
+# ACE-Step 1.5 — music-gen environment requirements
+# ============================================================
+# Python: 3.11  |  CUDA: 12.8  |  GPU: NVIDIA H100 PCIe
+#
+# Setup:
+#   pyenv virtualenv 3.11 music-gen
+#   pyenv activate music-gen
+#   pip install --extra-index-url https://download.pytorch.org/whl/cu128 -r requirements_music_gen.txt
+#   pip install -e .                          # install ace_step package (editable)
+#   pip install -e acestep/third_parts/nano-vllm  # local nano-vllm package
+#
+# Model weights (9.4 GB):
+#   Symlink: checkpoints → /path/to/Ace-Step1.5
+#   Or auto-downloads from HuggingFace on first run
+# ============================================================
+
+# --- PyTorch + CUDA 12.8 ---
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.10.0+cu128
+torchaudio==2.10.0+cu128
+torchvision==0.25.0+cu128
+
+# --- Core ML / Inference ---
+transformers==4.57.6
+diffusers==0.36.0
+accelerate==1.12.0
+peft==0.18.1
+safetensors==0.7.0
+einops==0.8.2
+vector-quantize-pytorch==1.27.20
+triton==3.6.0
+
+# --- Audio ---
+soundfile==0.13.1
+scipy==1.17.0
+numba==0.63.1
+
+# --- HuggingFace / Networking ---
+huggingface_hub==0.36.2
+tokenizers==0.22.2
+requests==2.32.5
+httpx==0.28.1
+fsspec==2025.12.0
+hf-xet==1.2.0
+
+# --- Utilities ---
+loguru==0.7.3
+numpy==2.3.5
+packaging==26.0
+psutil==7.2.2
+tqdm==4.67.3
+regex==2026.1.15
+PyYAML==6.0.3
+Jinja2==3.1.6
+pillow==12.1.0
+filelock==3.20.0
+sympy==1.14.0
+networkx==3.6.1
+typing_extensions==4.15.0
+
+# --- Optional (uncomment if needed) ---
+# flash-attn              # for faster attention (build from source on Linux)
+# gradio>=6.5.1           # for Gradio web UI
+# matplotlib>=3.7.5       # for visualization
+# tensorboard>=2.0.0      # for training monitoring
+# lightning>=2.0.0         # for training
+# torchcodec>=0.9.1       # for audio/video codec support
+# torchao                  # for torch AO quantization
+# toml                     # for config files
+# modelscope               # for ModelScope model hub
